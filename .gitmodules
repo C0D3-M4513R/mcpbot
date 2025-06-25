@@ -1,0 +1,4 @@
+[submodule "mappings"]
+	path = mappings
+	url = https://github.com/kettingpowered/MinecraftMappings.git
+	branch = mappings

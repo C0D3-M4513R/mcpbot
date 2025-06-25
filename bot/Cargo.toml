@@ -1,0 +1,33 @@
+[package]
+name = "mcpbot"
+version = "0.1.0"
+authors = ["C0D3 M4513R <28912031+C0D3-M4513R@users.noreply.github.com>"]
+edition = "2021"
+#include = ["src/**"]
+#include = ["test/**"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+rust-version = "1.87.0"
+
+[dependencies]
+#.env support
+dotenvy = "0.15"
+#logging
+tracing = {version = "0.1", features = ["attributes"]}
+tracing-subscriber = { version = "0.3" , features = ["env-filter"]}
+
+#errors
+anyhow = "1"
+
+#async stuff
+tokio = { version = "^1.43", features = ["macros", "signal", "rt-multi-thread"] }
+
+#bot
+serenity = { version = "^0.12", features = ["cache", "temp_cache", "framework", "standard_framework", "rustls_backend"] }
+poise = "0.6.1"
+
+mcpbot-macros = {path = "../macro"}
+phf = "0.12.1"
+phf_macros = "0.12.1"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(tokio_unstable)'] }

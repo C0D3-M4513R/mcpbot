@@ -1,0 +1,10 @@
+[workspace]
+members = ['bot', 'macro']
+resolver = "3"
+
+[profile.release]
+lto = true
+strip = true
+
+[profile.dev.build-override]
+opt-level = 3
