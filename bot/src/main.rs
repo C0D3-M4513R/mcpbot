@@ -3,7 +3,9 @@ use tracing_subscriber::layer::SubscriberExt;
 
 mod client;
 
-mcpbot_macros::get_mappings!("../mappings/mappings");
+mod codegen {
+    include!(concat!(env!("OUT_DIR"), "/codegen.rs"));
+}
 
 fn main() -> anyhow::Result<()> {
     let stdout = tracing_subscriber::fmt::Layer::default();

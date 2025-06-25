@@ -25,9 +25,13 @@ tokio = { version = "^1.43", features = ["macros", "signal", "rt-multi-thread"] 
 serenity = { version = "^0.12", features = ["cache", "temp_cache", "framework", "standard_framework", "rustls_backend"] }
 poise = "0.6.1"
 
-mcpbot-macros = {path = "../macro"}
 phf = "0.12.1"
-phf_macros = "0.12.1"
+
+[build-dependencies]
+serde_derive = "1.0.219"
+serde_json = "1.0.140"
+serde = "1.0.219"
+phf_codegen = "0.12.1"
 
 [lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(tokio_unstable)'] }
